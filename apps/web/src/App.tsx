@@ -6,6 +6,7 @@ import {AboutSection} from "@workspace/ui/components/ui/AboutSection"
 import SectorsSection from "@workspace/ui/components/ui/SectorsSection"
 import GuideSection from "@workspace/ui/components/ui/GuideSection"
 import TeamSection from "@workspace/ui/components/ui/TeamSection"
+import FooterSection from "@workspace/ui/components/ui/FooterSection"
 export default function App() {
   const screenSize = useScreenSize()
 
@@ -15,7 +16,7 @@ export default function App() {
     { name: "Guide", url: "#guide" },
     { name: "People", url: "#people" },
     { name: "Signup", url: "#signup" },
-    { name: "Login", url: "#login" },
+    { name: "Login", url:  "#login" },
   ]
 
   return (
@@ -48,6 +49,7 @@ export default function App() {
       <GuideSection/>
       <SectorsSection/>
       <TeamSection/>
+      <FooterSection/>
     </div>
   )
 }
