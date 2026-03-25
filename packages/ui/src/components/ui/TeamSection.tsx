@@ -80,8 +80,7 @@ export default function TeamSection() {
         }
       `}</style>
 
-      <section className="team">
-        <h2 className="team-heading">Meet the Team</h2>
+<section id="people" className="team">        <h2 className="team-heading">Meet the Team</h2>
 
         <div className="team-grid">
           {team.map((member, i) => (

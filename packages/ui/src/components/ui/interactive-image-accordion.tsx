@@ -44,7 +44,7 @@ const AccordionItem = ({ item, isActive, onMouseEnter }: AccordionItemProps) => 
             ? "bottom-6 left-1/2 -translate-x-1/2 rotate-0"
             : "bottom-24 left-1/2 -translate-x-1/2 rotate-90"
         }`}
-        style={{ color: "#061E29" }}
+        style={{ color: "#F3F4F4" }}
       >
         {item.title}
       </span>
@@ -64,21 +64,21 @@ export function LandingAccordionItem() {
           <div className="w-full text-center md:w-1/2 md:text-left">
             <p
               className="mb-4 text-sm font-semibold uppercase tracking-widest"
-              style={{ color: "#061E29" }}
+              style={{ color: "#F3F4F4" }}
             >
               Next-Gen AI Avatars
             </p>
             <h1
               className="text-5xl leading-none font-bold tracking-tighter md:text-7xl"
-              style={{ color: "#061E29" }}
+              style={{ color: "#F3F4F4" }}
             >
               VAKTAR
               <br />
-              <span style={{ color: "#061E29" }}>AI</span>
+              <span style={{ color: "#F3F4F4" }}>AI</span>
             </h1>
             <p
               className="mx-auto mt-6 max-w-sm text-base leading-relaxed md:mx-0"
-              style={{ color: "#061E29" }}
+              style={{ color: "#F3F4F4" }}
             >
               Create lifelike AI avatars that bring your identity to life. Powered by cutting-edge generative models.
             </p>
@@ -86,14 +86,14 @@ export function LandingAccordionItem() {
               <a
                 href="#contact"
                 className="inline-block rounded-full px-8 py-3 font-semibold shadow-lg transition-all duration-300 hover:scale-105"
-                style={{ background: "#061E29", color: "#ffffff" }}
+                style={{ background: "#F3F4F4", color: "#061E29" }}
               >
                 Try Now →
               </a>
               <a
                 href="#about"
                 className="inline-block rounded-full px-8 py-3 font-semibold transition-all duration-300"
-                style={{ border: "1px solid #061E29", color: "#061E29" }}
+                style={{ border: "1px solid #F3F4F4", color: "#F3F4F4" }}
               >
                 Learn More
               </a>

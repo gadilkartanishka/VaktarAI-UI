@@ -74,8 +74,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
 const SectorsSection: React.FC = () => {
   return (
-    <section className="w-full py-12 lg:py-20">
-      <div className="container mx-auto px-4 max-w-6xl">
+<section id="sectors" className="w-full py-12 lg:py-20">      <div className="container mx-auto px-4 max-w-6xl">
 
         {/* Header */}
         <div className="mb-8">

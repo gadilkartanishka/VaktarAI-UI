@@ -3,8 +3,7 @@ import { Badge } from "@workspace/ui/components/ui/badge";
 
 function AboutSection() {
   return (
-    <div className="w-full py-12 lg:py-20">
-      <div className="container mx-auto px-4">
+<div id="about" className="w-full py-12 lg:py-20">      <div className="container mx-auto px-4">
         <div className="flex flex-col gap-8">
 
           {/* Header */}

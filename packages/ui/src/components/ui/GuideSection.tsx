@@ -118,8 +118,7 @@ export default function GuideSection() {
         }
       `}</style>
 
-      <section className="guide">
-        {/* LEFT: Steps */}
+<section id="guide" className="guide">        {/* LEFT: Steps */}
         <div className="steps">
           {steps.map((step, i) => (
             <div
