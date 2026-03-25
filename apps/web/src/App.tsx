@@ -9,7 +9,7 @@ import TeamSection from "@workspace/ui/components/ui/TeamSection"
 import FooterSection from "@workspace/ui/components/ui/FooterSection"
 import AvatarPage from "./AvatarPage"
 import ChatSection from "@workspace/ui/components/ui/ChatSection"
-
+import Gallery from "@workspace/ui/components/ui/Gallery"
 function Home() {
   const navItems = [
     { name: "About", url: "#about" },
@@ -18,6 +18,7 @@ function Home() {
     { name: "People", url: "#people" },
     { name: "Try", url: "/avatar" },
     { name: "Chat", url: "/chat" }, 
+    { name: "Gallery", url: "/gallery" },
     { name: "Signup", url: "#signup" },
     { name: "Login", url: "#login" },
   ]
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/avatar" element={<AvatarPage />} />
         <Route path="/chat" element={<ChatSection />} />
+        <Route path="/gallery" element={<Gallery/>}/>
       </Routes>
     </Router>
   )

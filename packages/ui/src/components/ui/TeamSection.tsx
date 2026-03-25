@@ -1,11 +1,11 @@
 export default function TeamSection() {
   const team = [
-    { name: "Member 1", role: "AI Engineer" },
-    { name: "Member 2", role: "Frontend Developer" },
-    { name: "Member 3", role: "Backend Developer" },
-    { name: "Member 4", role: "UI/UX Designer" },
-    { name: "Member 5", role: "ML Engineer" },
-    { name: "Member 6", role: "Product Strategist" },
+    { name: "Bhargavi Tambe", image: "/Team/Bhargavi.jpeg" },
+    { name: "Kshitij Kumavat", image: "/Team/Kshitij.jpeg" },
+    { name: "Osin Somkuwar", image: "/Team/Tanishka.jpeg" },
+    { name: "Shreeja Mahale", image: "/Team/Shreeja.jpeg" },
+    { name: "Soham Yeola", image: "/Team/Soham.jpeg" },
+    { name: "Tanishka Gadilkar", image: "/Team/Tanishka.jpeg" },
   ];
 
   return (
@@ -32,15 +32,14 @@ export default function TeamSection() {
         .team-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 50px;
+          gap: 60px; /* increased spacing */
         }
 
         .member {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 14px;
-
+          gap: 18px; /* increased spacing */
           transition: transform 0.3s ease;
         }
 
@@ -49,28 +48,22 @@ export default function TeamSection() {
         }
 
         .avatar {
-          width: 100px;
-          height: 100px;
+          width: 160px; /* increased size */
+          height: 160px;
           border-radius: 50%;
+          overflow: hidden;
+        }
 
-          background: #5F9598; /* placeholder */
-          
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          color: #061E29;
-          font-weight: 600;
+        .avatar img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         .name {
           font-weight: 600;
           color: #061E29;
-        }
-
-        .role {
-          font-size: 13px;
-          color: #1D546D;
+          font-size: 16px;
         }
 
         @media (max-width: 900px) {
@@ -80,17 +73,17 @@ export default function TeamSection() {
         }
       `}</style>
 
-<section id="people" className="team">        <h2 className="team-heading">Meet the Team</h2>
+      <section id="people" className="team">
+        <h2 className="team-heading">Meet the Team</h2>
 
         <div className="team-grid">
           {team.map((member, i) => (
             <div key={i} className="member">
               <div className="avatar">
-                {member.name.split(" ")[1] || i + 1}
+                <img src={member.image} alt={member.name} />
               </div>
 
               <div className="name">{member.name}</div>
-              <div className="role">{member.role}</div>
             </div>
           ))}
         </div>

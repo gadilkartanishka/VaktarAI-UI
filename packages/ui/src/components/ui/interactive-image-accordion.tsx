@@ -13,11 +13,11 @@ interface AccordionItemProps {
 }
 
 const accordionItems: AccordionItemData[] = [
-  { id: 1, title: "Aira", imageUrl: "/avatar1.avif" },
-  { id: 2, title: "Kael", imageUrl: "/avatar_man.avif" },
-  { id: 3, title: "Zayn", imageUrl: "/avatar5.jpg" },
-  { id: 4, title: "Nyra", imageUrl: "/avatar3.avif" },
-  { id: 5, title: "Elara", imageUrl: "/avatar2.avif" },
+  { id: 1, title: "Aira", imageUrl: "/avatars_sample/avatar1.avif" },
+  { id: 2, title: "Kael", imageUrl: "/avatars_sample/avatar4.avif" },
+  { id: 3, title: "Zayn", imageUrl: "/avatars_sample/avatar5.jpg" },
+  { id: 4, title: "Nyra", imageUrl: "/avatars_sample/avatar3.avif" },
+  { id: 5, title: "Elara", imageUrl: "/avatars_sample/avatar2.avif" },
 ]
 
 const AccordionItem = ({ item, isActive, onMouseEnter }: AccordionItemProps) => {
