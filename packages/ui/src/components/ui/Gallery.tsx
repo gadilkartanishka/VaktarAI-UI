@@ -11,31 +11,30 @@ interface VideoItem {
 // ── Data ───────────────────────────────────────────────────────────────────
 const VIDEOS: VideoItem[] = [
   {
-    src: "https://www.w3schools.com/html/mov_bbb.mp4",
-    poster: "https://images.unsplash.com/photo-1706374074975-b1b7e7e8e0f6?w=800&q=80",
-    title: "Neural Dreamscape",
-    desc: "Generative art · Vaktar v2",
+    src: "/gallery_video/video1.mp4",
+    poster: "https://via.placeholder.com/800",
+    title: "My Video 1",
+    desc: "Custom video",
   },
   {
-    src: "https://www.w3schools.com/html/movie.mp4",
-    poster: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-    title: "Digital Horizon",
-    desc: "Concept render · Vaktar v2",
+    src: "/gallery_video/video2.mp4",
+    poster: "https://via.placeholder.com/800",
+    title: "My Video 2",
+    desc: "Custom video",
   },
   {
-    src: "https://www.w3schools.com/html/mov_bbb.mp4",
-    poster: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
-    title: "Quantum Bloom",
-    desc: "Abstract series · Vaktar v3",
+    src: "/gallery_video/video3.mp4",
+    poster: "https://via.placeholder.com/800",
+    title: "My Video 3",
+    desc: "Custom video",
   },
   {
-    src: "https://www.w3schools.com/html/movie.mp4",
-    poster: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&q=80",
-    title: "Synthetic Eden",
-    desc: "Landscape · Vaktar v3",
+    src: "/gallery_video/video4.mp4",
+    poster: "https://via.placeholder.com/800",
+    title: "My Video 4",
+    desc: "Custom video",
   },
 ]
-
 // ── Scoped CSS ─────────────────────────────────────────────────────────────
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
