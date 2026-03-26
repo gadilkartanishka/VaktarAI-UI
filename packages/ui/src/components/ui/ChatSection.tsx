@@ -681,7 +681,8 @@ const CSS = `
     border: 1.5px dashed var(--beige2);
     border-radius: 14px;
     background: var(--beige);
-    padding: 22px 14px;
+    padding: 0;
+    overflow: hidden;
     text-align: center;
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
@@ -703,7 +704,14 @@ const CSS = `
 
   .upload-box p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
   .upload-box small { font-size: 0.65rem; color: color-mix(in srgb, var(--muted) 60%, transparent); }
-
+  .upload-preview {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    display: block;
+  }
   .select-wrap { position: relative; }
 
   .select-wrap select {
@@ -1051,14 +1059,21 @@ export default function VaktarChat() {
           <div className="sidebar-section">
             <div className="section-label">Avatar Photo</div>
             <div className="upload-box" onClick={handleUploadClick}>
-              <div className="upload-icon">📷</div>
-              <p>Drop or click to upload</p>
-              <small>JPG · PNG · WEBP</small>
-            </div>
+            {userAvatar ? (
+              <img src={userAvatar} className="upload-preview" alt="Avatar preview" />
+            ) : (
+              <>
+                <div className="upload-icon">📷</div>
+                <p>Drop or click to upload</p>
+                <small>JPG · PNG · WEBP</small>
+              </>
+            )}
+          </div>
             <input type="file" ref={fileInputRef} accept="image/*" style={{ display: 'none' }} onChange={handleUpload} />
           </div>
 
           <div className="sidebar-divider" />
+          <div className={`upload-box${userAvatar ? '' : ' empty'}`} onClick={handleUploadClick}></div>
 
           <div className="sidebar-section">
             <div className="section-label">Language</div>
