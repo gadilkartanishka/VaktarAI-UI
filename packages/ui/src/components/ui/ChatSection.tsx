@@ -24,26 +24,28 @@ const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
   :root {
-    --bg: #f0f4f8;
-    --surface: #faf7f2;
-    --surface2: #eef4f9;
-    --surface3: #dceef8;
-    --sidebar-band: #e8f5f3;
-    --border: rgba(30, 60, 120, 0.10);
-    --navy: #1a2e5a;
-    --navy2: #2a4480;
-    --turquoise: #2abfbf;
-    --lightblue: #6aaee8;
-    --beige: #f5efe4;
-    --beige2: #ede3d0;
-    --accent: #1a5abf;
-    --accent-glow: rgba(26, 90, 191, 0.18);
-    --text: #162040;
-    --muted: #6a7fa8;
-    --nav-h: 70px;
-    --sidebar-w: 300px;
-  }
+  --bg: #f7f5f2;
+  --surface: #ffffff;
+  --surface2: #f0eeea;
+  --surface3: #e6e2dc;
+  --sidebar-band: #f3f1ed;
+  --border: rgba(0, 0, 0, 0.08);
 
+  --navy: #0b023b;
+  --navy2: #124461;
+
+  --turquoise: #6b7c85;   /* muted blue-grey */
+  --lightblue: #397895;
+
+  --beige: #f5f2ec;
+  --beige2: #e8e4dc;
+
+  --accent: #6b7c85;
+  --accent-glow: rgba(107, 124, 133, 0.15);
+
+  --text: #2a2a2a;
+  --muted: #7a7a7a;
+}
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
@@ -157,17 +159,17 @@ const CSS = `
   .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 
   .voice-btn {
-    padding: 9px 8px;
-    border-radius: 9px;
-    text-align: center;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    font-size: 0.8rem;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'Taviraj', serif;
-  }
+  padding: 9px 8px;
+  border-radius: 9px;
+  text-align: center;
+  background: var(--lightblue);   /* ✅ changed */
+  border: 1px solid var(--lightblue); /* ✅ changed */
+  font-size: 0.8rem;
+  color: #fff;   /* ✅ better contrast */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Taviraj', serif;
+}
 
   .voice-btn:hover { border-color: var(--turquoise); color: var(--navy); background: var(--sidebar-band); }
 
