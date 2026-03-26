@@ -87,6 +87,8 @@
 //     </div>
 //   )
 // }
+
+
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@workspace/ui/lib/utils"
@@ -100,31 +102,101 @@ interface NavItem {
 interface NavBarProps {
   items: NavItem[]
   className?: string
+  /**
+   * fullWidth: renders as a fixed full-width top bar (used in Gallery, Chat, etc.)
+   * default (false): renders as the floating centered pill
+   */
+  fullWidth?: boolean
 }
 
-export function NavBar({ items, className }: NavBarProps) {
+export function NavBar({ items, className, fullWidth = false }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name)
-  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    handleResize()
+    const handleResize = () => {}
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  if (fullWidth) {
+    /* ── FULL-WIDTH BAR MODE (Gallery, Chat pages) ── */
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          height: "80px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "transparent",
+        }}
+        className={className}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            borderRadius: "9999px",
+            background: "#F3F4F4",
+            border: "1px solid rgba(0,0,0,0.08)",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+            padding: "5px",
+          }}
+        >
+          {items.map((item) => {
+            const isActive = activeTab === item.name
+            const isCTA = item.name === "Login" || item.name === "Try It"
+
+            return (
+              <Link
+                key={item.name}
+                to={item.url}
+                onClick={() => setActiveTab(item.name)}
+                className={cn(
+                  "relative flex items-center justify-center h-10 px-5 rounded-full text-sm font-semibold transition-all duration-300",
+                  !isCTA && "text-[#1D546D]/60 hover:text-[#1D546D]",
+                  isActive && !isCTA && "text-[#1D546D]",
+                  isCTA && "bg-[#061E29] text-[#F3F4F4] shadow-md hover:shadow-lg hover:scale-105"
+                )}
+              >
+                <span className="hidden md:inline">{item.name}</span>
+                <span className="md:hidden">{item.name[0]}</span>
+
+                {isActive && !isCTA && (
+                  <motion.div
+                    layoutId="lamp-fullwidth"
+                    className="absolute inset-0 -z-10 rounded-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-white" />
+                    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-[#1D546D]" />
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-4 rounded-full bg-[#1D546D]/20 blur-md" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-3 rounded-full bg-[#1D546D]/20 blur-sm" />
+                  </motion.div>
+                )}
+              </Link>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
+
+  /* ── FLOATING PILL MODE (landing page, default) ── */
   return (
     <div
       className={cn(
         "fixed bottom-0 left-1/2 z-50 mb-6 -translate-x-1/2 sm:top-0 sm:bottom-auto sm:mt-6",
-        "pointer-events-none",
+        "pointer-events-none w-max",
         className
       )}
     >
-      <div className="flex items-center gap-2 rounded-full border border-[#F3F4F4] bg-[#F3F4F4]/80 p-1 shadow-lg backdrop-blur-lg pointer-events-auto">
-        
+      <div className="flex items-center gap-2 rounded-full border border-[#F3F4F4] bg-[#F3F4F4]/80 p-1 shadow-lg backdrop-blur-lg pointer-events-auto w-max">
         {items.map((item) => {
           const isActive = activeTab === item.name
           const isCTA = item.name === "Login" || item.name === "Try It"
@@ -136,45 +208,29 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative flex items-center justify-center h-10 px-5 rounded-full text-sm font-semibold transition-all duration-300",
-
-                // Normal items
-                !isCTA &&
-                  "text-[#1D546D]/60 hover:text-[#1D546D]",
-
-                // Active tab
-                isActive && !isCTA &&
-                  "bg-white text-[#1D546D]",
-
-                // CTA buttons
-                isCTA &&
-                  "bg-[#061E29] text-[#F3F4F4] shadow-md hover:shadow-lg hover:scale-105"
+                !isCTA && "text-[#1D546D]/60 hover:text-[#1D546D]",
+                isActive && !isCTA && "text-[#1D546D]",
+                isCTA && "bg-[#061E29] text-[#F3F4F4] shadow-md hover:shadow-lg hover:scale-105"
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
               <span className="md:hidden">{item.name[0]}</span>
 
-              {/* Active glow effect */}
               {isActive && !isCTA && (
-  <motion.div
-    layoutId="lamp"
-    className="absolute inset-0 -z-10 rounded-full"
-    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-  >
-    {/* Base glow */}
-    <div className="absolute inset-0 rounded-full bg-white" />
-
-    {/* Top highlight (tube light effect) */}
-    <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-[#1D546D]" />
-
-    {/* Glow blur layers */}
-    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-4 rounded-full bg-[#1D546D]/20 blur-md" />
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-3 rounded-full bg-[#1D546D]/20 blur-sm" />
-  </motion.div>
-)}
+                <motion.div
+                  layoutId="lamp"
+                  className="absolute inset-0 -z-10 rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                >
+                  <div className="absolute inset-0 rounded-full bg-white" />
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 rounded-full bg-[#1D546D]" />
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-4 rounded-full bg-[#1D546D]/20 blur-md" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-3 rounded-full bg-[#1D546D]/20 blur-sm" />
+                </motion.div>
+              )}
             </Link>
           )
         })}
-
       </div>
     </div>
   )
